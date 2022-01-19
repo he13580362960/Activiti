@@ -16,7 +16,7 @@
   <description>BPM and workflow engine</description>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <!-- Dependency versions -->
     <batik.version>1.9.1</batik.version>
     <bouncycastle.version>1.59</bouncycastle.version>
@@ -716,6 +716,16 @@
     <module>modules/activiti-dmn-api</module>
     <module>modules/activiti-engine</module>
   </modules>
+  <repositories>
+        <repository>
+            <id>Mulesoft</id>
+            <name>Mulesoft repository</name>
+            <url>http://maven.imagej.net/content/repositories/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
   <build>
     <plugins>
       <plugin>
@@ -728,6 +738,9 @@
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
           <optimize>true</optimize>
+          <skipTests>true</skipTests><!-- 跳过测试 -->
+          <fork>true</fork>
+          <executable>${JAVA_8_HOME}/bin/javac</executable>
         </configuration>
       </plugin>
       <plugin>
@@ -798,6 +811,9 @@
             <showDeprecation>true</showDeprecation>
             <showWarnings>true</showWarnings>
             <optimize>true</optimize>
+            <skipTests>true</skipTests><!-- 跳过测试 -->
+            <fork>true</fork>
+            <executable>${JAVA_8_HOME}/bin/javac</executable>
           </configuration>
         </plugin>
         <plugin>
